@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="default_web_client_id" translatable="false">910722162039-gisd4ja9a00dhor501jckvajhsk47c57.apps.googleusercontent.com</string>
-    <string name="gcm_defaultSenderId" translatable="false">910722162039</string>
-    <string name="google_api_key" translatable="false">AIzaSyCt1Aa0BauMSNG2LWh9p5EH3NCs3aT5Rlo</string>
-    <string name="google_app_id" translatable="false">1:910722162039:android:1cad9892da9ec4deb0d572</string>
-    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyCt1Aa0BauMSNG2LWh9p5EH3NCs3aT5Rlo</string>
-    <string name="google_storage_bucket" translatable="false">uesits-71eb0.appspot.com</string>
-    <string name="project_id" translatable="false">uesits-71eb0</string>
+    <string name="default_web_client_id" translatable="false">830199449953-868ttsrt7fvo94hkkr6he6aidqb6j429.apps.googleusercontent.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">830199449953</string>
+    <string name="google_api_key" translatable="false">AIzaSyAUb7ySoktJyG2Ci1Pm3ZWTLDJR-tMtBVg</string>
+    <string name="google_app_id" translatable="false">1:830199449953:android:0b7079c612b4a099ef5d20</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyAUb7ySoktJyG2Ci1Pm3ZWTLDJR-tMtBVg</string>
+    <string name="google_storage_bucket" translatable="false">uesiap-aaf9c.appspot.com</string>
+    <string name="project_id" translatable="false">uesiap-aaf9c</string>
 </resources>

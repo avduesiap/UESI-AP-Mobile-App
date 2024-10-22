@@ -1150,7 +1150,7 @@
     <string name="common_signin_button_text">Sign in</string>
     <string name="common_signin_button_text_long">Sign in with Google</string>
     <string name="copy_toast_msg">Link copied to clipboard</string>
-    <string name="default_web_client_id" translatable="false">910722162039-gisd4ja9a00dhor501jckvajhsk47c57.apps.googleusercontent.com</string>
+    <string name="default_web_client_id" translatable="false">830199449953-868ttsrt7fvo94hkkr6he6aidqb6j429.apps.googleusercontent.com</string>
     <string name="error_icon_content_description">Error</string>
     <string name="exo_controls_cc_disabled_description">Enable subtitles</string>
     <string name="exo_controls_cc_enabled_description">Disable subtitles</string>
@@ -1216,11 +1216,11 @@
     <string name="fallback_menu_item_open_in_browser">Open in browser</string>
     <string name="fallback_menu_item_share_link">Share link</string>
     <string name="fcm_fallback_notification_channel_label">Miscellaneous</string>
-    <string name="gcm_defaultSenderId" translatable="false">910722162039</string>
-    <string name="google_api_key" translatable="false">AIzaSyCt1Aa0BauMSNG2LWh9p5EH3NCs3aT5Rlo</string>
-    <string name="google_app_id" translatable="false">1:910722162039:android:1cad9892da9ec4deb0d572</string>
-    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyCt1Aa0BauMSNG2LWh9p5EH3NCs3aT5Rlo</string>
-    <string name="google_storage_bucket" translatable="false">uesits-71eb0.appspot.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">830199449953</string>
+    <string name="google_api_key" translatable="false">AIzaSyAUb7ySoktJyG2Ci1Pm3ZWTLDJR-tMtBVg</string>
+    <string name="google_app_id" translatable="false">1:830199449953:android:0b7079c612b4a099ef5d20</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyAUb7ySoktJyG2Ci1Pm3ZWTLDJR-tMtBVg</string>
+    <string name="google_storage_bucket" translatable="false">uesiap-aaf9c.appspot.com</string>
     <string name="header_description" translatable="false">Heading</string>
     <string name="hide_bottom_view_on_scroll_behavior" translatable="false">com.google.android.material.behavior.HideBottomViewOnScrollBehavior</string>
     <string description="Content description for an icon that appears in the title area of a dialog" name="icon_content_description">Dialog Icon</string>
@@ -1282,7 +1282,7 @@
     <string name="play">Play</string>
     <string name="playback_channel_name">Now Playing</string>
     <string name="progressbar_description" translatable="false">Progress Bar</string>
-    <string name="project_id" translatable="false">uesits-71eb0</string>
+    <string name="project_id" translatable="false">uesiap-aaf9c</string>
     <string name="radiogroup_description" translatable="false">Radio Group</string>
     <string name="rn_tab_description" translatable="false">Tab</string>
     <string name="rntp_temporary_channel_id">rntp_temporary_channel</string>
