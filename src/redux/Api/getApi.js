@@ -9,11 +9,12 @@ authHeader.append("token", ACCESS_TOKEN);
 const getDataService = {
 
     getData: function (url, token = null) {
+        console.log(url);
         if (token != null) {
             authHeader.append("Authorization", 'Bearer ' + token);
         }
         return new Promise((resolve, reject) => {
-            //console.log(API_URL + url);
+            console.log(API_URL + url);
             fetch(API_URL + url, {
                 method: "GET",
                 headers: authHeader

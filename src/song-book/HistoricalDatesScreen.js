@@ -44,7 +44,7 @@ import {
     statusCodes,//
 } from '@react-native-google-signin/google-signin';
 GoogleSignin.configure({
-    webClientId: '910722162039-gisd4ja9a00dhor501jckvajhsk47c57.apps.googleusercontent.com',
+    webClientId: '830199449953-868ttsrt7fvo94hkkr6he6aidqb6j429.apps.googleusercontent.com',
     scopes: ['profile', 'email']
 });
 

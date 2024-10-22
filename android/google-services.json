@@ -1,20 +1,28 @@
 {
   "project_info": {
-    "project_number": "910722162039",
-    "project_id": "uesits-71eb0",
-    "storage_bucket": "uesits-71eb0.appspot.com"
+    "project_number": "830199449953",
+    "project_id": "uesiap-aaf9c",
+    "storage_bucket": "uesiap-aaf9c.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:910722162039:android:1cad9892da9ec4deb0d572",
+        "mobilesdk_app_id": "1:830199449953:android:0b7079c612b4a099ef5d20",
         "android_client_info": {
           "package_name": "com.uesiap.geethavali"
         }
       },
       "oauth_client": [
         {
-          "client_id": "910722162039-ckrpch7pkhk8sv0mc4phk2t639d08e8d.apps.googleusercontent.com",
+          "client_id": "830199449953-d3tnrd8maaoo498j9tld4a6smuv80vlt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.uesiap.geethavali",
+            "certificate_hash": "57d7e70d74d6ed7673c6cfc2d143002fe3b145db"
+          }
+        },
+        {
+          "client_id": "830199449953-pv0p8ume9tnjucc1r2elb6mpv0tql9h6.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.uesiap.geethavali",
@@ -22,44 +30,20 @@
           }
         },
         {
-          "client_id": "910722162039-d9jlcv2q03l3akp10pkrbejr22kiflfc.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.uesiap.geethavali",
-            "certificate_hash": "4ab44bfcfcd6b2ff41ea94b27b3e01e513f4989e"
-          }
-        },
-        {
-          "client_id": "910722162039-jnrk4cgmprsirru1qohf4ripjeq0ekg1.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.uesiap.geethavali",
-            "certificate_hash": "5458667390af70b38d1548113dcf5da9fa6cae39"
-          }
-        },
-        {
-          "client_id": "910722162039-p1u1vj5l3bmmku6v09s5r2l3qsinhpgg.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.uesiap.geethavali",
-            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
-          }
-        },
-        {
-          "client_id": "910722162039-gisd4ja9a00dhor501jckvajhsk47c57.apps.googleusercontent.com",
+          "client_id": "830199449953-868ttsrt7fvo94hkkr6he6aidqb6j429.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCt1Aa0BauMSNG2LWh9p5EH3NCs3aT5Rlo"
+          "current_key": "AIzaSyAUb7ySoktJyG2Ci1Pm3ZWTLDJR-tMtBVg"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "910722162039-gisd4ja9a00dhor501jckvajhsk47c57.apps.googleusercontent.com",
+              "client_id": "830199449953-868ttsrt7fvo94hkkr6he6aidqb6j429.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

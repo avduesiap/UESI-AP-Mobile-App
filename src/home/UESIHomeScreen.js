@@ -44,7 +44,7 @@ import {
     statusCodes,//
 } from '@react-native-google-signin/google-signin';
 GoogleSignin.configure({
-    webClientId: '910722162039-gisd4ja9a00dhor501jckvajhsk47c57.apps.googleusercontent.com',
+    webClientId: '830199449953-868ttsrt7fvo94hkkr6he6aidqb6j429.apps.googleusercontent.com',
     scopes: ['profile', 'email']
 });
 
@@ -104,13 +104,13 @@ function UESIHomeScreen(props) {
         if (!firebase.apps.length) {
             
             firebase.initializeApp({
-                apiKey: 'AIzaSyCZZPbHfrcZrjDoHiXJiCGVnzFhUlcIdgA',
-                authDomain: 'uesits-55284.firebaseapp.com',
+                apiKey: 'AIzaSyAUb7ySoktJyG2Ci1Pm3ZWTLDJR-tMtBVg',
+                authDomain: 'uesiap-aaf9c.firebaseapp.com',
                 databaseURL: '',
-                projectId: 'uesits-55284',
-                storageBucket: 'uesits-55284.appspot.com',
-                appId: "1:839752534297:android:42dd721c8a14ee7de5dd88",
-                messagingSenderId: '839752534297'
+                projectId: 'uesiap-aaf9c',
+                storageBucket: 'uesiap-aaf9c.appspot.com',
+                appId: "1:830199449953:android:0b7079c612b4a099ef5d20",
+                messagingSenderId: '830199449953'
             });
         }
 
@@ -122,9 +122,10 @@ function UESIHomeScreen(props) {
                     "getAppVersion",
                     []
                     ).then(( async response => {
-                    
+                        console.log('getAppVersion');
+                    console.log(response);
                     if(response.status === 1){
-                        
+                        console.log(DeviceInfo.getVersion());
                       if(Number(response.data[0].version)!=Number(DeviceInfo.getVersion())){
                             //setUpdateAvailable(true);
                             Alert.alert('New Update:', response.data[0].update_message, [
