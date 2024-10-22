@@ -1,0 +1,20 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.uesiap.geethavali.app-mergeReleaseResources-57:/values-hdpi-v4/values-hdpi-v4.xml",
+            "map": [
+                {
+                    "source": "/Users/srinivasaraodarnasi/.gradle/caches/transforms-3/aaf48a37aaa0cc402a14b2c8072d919f/transformed/appcompat-1.5.0/res/values-hdpi-v4/values-hdpi-v4.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "6",
+                        "endColumns": "13",
+                        "endOffsets": "327"
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,71 @@
+{
+  "project_info": {
+    "project_number": "910722162039",
+    "project_id": "uesits-71eb0",
+    "storage_bucket": "uesits-71eb0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:910722162039:android:1cad9892da9ec4deb0d572",
+        "android_client_info": {
+          "package_name": "com.uesiap.geethavali"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "910722162039-ckrpch7pkhk8sv0mc4phk2t639d08e8d.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.uesiap.geethavali",
+            "certificate_hash": "25003a556475036c484e762ac5c0da42db68a224"
+          }
+        },
+        {
+          "client_id": "910722162039-d9jlcv2q03l3akp10pkrbejr22kiflfc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.uesiap.geethavali",
+            "certificate_hash": "4ab44bfcfcd6b2ff41ea94b27b3e01e513f4989e"
+          }
+        },
+        {
+          "client_id": "910722162039-jnrk4cgmprsirru1qohf4ripjeq0ekg1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.uesiap.geethavali",
+            "certificate_hash": "5458667390af70b38d1548113dcf5da9fa6cae39"
+          }
+        },
+        {
+          "client_id": "910722162039-p1u1vj5l3bmmku6v09s5r2l3qsinhpgg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.uesiap.geethavali",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "910722162039-gisd4ja9a00dhor501jckvajhsk47c57.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCt1Aa0BauMSNG2LWh9p5EH3NCs3aT5Rlo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "910722162039-gisd4ja9a00dhor501jckvajhsk47c57.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
