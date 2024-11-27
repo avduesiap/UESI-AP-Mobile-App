@@ -54,10 +54,10 @@ function FeedbackScreen(props) {
         }
     };
     const callus =()=>{
-        Linking.openURL('tel:+917702471313');
+        Linking.openURL('tel:+917013609136');
     }
     const sendMessage =()=>{
-        Linking.openURL('whatsapp://send?text=&phone=+917702471313');
+        Linking.openURL('whatsapp://send?text=&phone=+917013609136');
     }
 
     return (

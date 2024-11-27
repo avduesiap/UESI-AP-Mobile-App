@@ -432,9 +432,9 @@ const DrawerNavigator = () => {
             },
             drawerKey:'dfd-programs'
           }}/>
-        <Drawer.Screen name="Vidyarthi Velugu" component={MagazineListScreen}  options={{
-            drawerLabel: 'Vidyarthi Velugu',
-            title: 'Vidyarthi Velugu',
+        <Drawer.Screen name="Vidyarthi Jwala" component={MagazineListScreen}  options={{
+            drawerLabel: 'Vidyarthi Jwala',
+            title: 'Vidyarthi Jwala',
             groupName: 'magazines',
             headerStyle: {
                 backgroundColor: Colors().themeColor,
@@ -558,9 +558,9 @@ const DrawerNavigator = () => {
                 fontWeight: 'bold',
             },
           }}/> */}
-          <Drawer.Screen name="Audio Songs" component={AudioSongsScreen}  options={{
-            drawerLabel: 'Audio Songs',
-            title: 'Audio Songs',
+          <Drawer.Screen name="Music Player" component={AudioSongsScreen}  options={{
+            drawerLabel: 'Music Player',
+            title: 'Music Player',
             groupName: 'audio-songs',
             headerStyle: {
                 backgroundColor: Colors().themeColor,
@@ -570,9 +570,9 @@ const DrawerNavigator = () => {
                 fontWeight: 'bold',
             },
           }}/>
-          <Drawer.Screen name="Music Albums" component={AlbumsScreen}  options={{
-            drawerLabel: 'Music Albums',
-            title: 'Music Albums',
+          <Drawer.Screen name="New music albums" component={AlbumsScreen}  options={{
+            drawerLabel: 'New music albums',
+            title: 'New music albums',
             groupName: 'music-albums',
             headerStyle: {
                 backgroundColor: Colors().themeColor,
@@ -595,7 +595,7 @@ const DrawerNavigator = () => {
                 fontWeight: 'bold',
             },
           }}/>
-            <Drawer.Screen name="JobPortal" component={DonateFreeWillScreen}  options={{
+            {/* <Drawer.Screen name="JobPortal" component={DonateFreeWillScreen}  options={{
             drawerLabel: 'Job Portal',
             title: 'Job Portal',
             groupName: 'JobPortal',
@@ -606,7 +606,7 @@ const DrawerNavigator = () => {
             headerTitleStyle: {
                 fontWeight: 'bold',
             },
-          }}/>
+          }}/> */}
           <Drawer.Screen name="Login" component={AuthNavigator}  options={{
             drawerLabel: 'Login',
             title: 'Login',

@@ -2,7 +2,7 @@
   "project_info": {
     "project_number": "830199449953",
     "project_id": "uesiap-aaf9c",
-    "storage_bucket": "uesiap-aaf9c.appspot.com"
+    "storage_bucket": "uesiap-aaf9c.firebasestorage.app"
   },
   "client": [
     {
@@ -19,6 +19,14 @@
           "android_info": {
             "package_name": "com.uesiap.geethavali",
             "certificate_hash": "57d7e70d74d6ed7673c6cfc2d143002fe3b145db"
+          }
+        },
+        {
+          "client_id": "830199449953-e21s0t1lpb796kd0k61tmd47fgttksot.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.uesiap.geethavali",
+            "certificate_hash": "bf722eb2d7d7fe7c7886456b9a407feb43787ea9"
           }
         },
         {

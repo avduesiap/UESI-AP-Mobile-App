@@ -13,7 +13,7 @@ export const AppStyle =
 }
 export const currency = "₹";
 export const logo = require('../assets/images/logo.png')
-export const splashlogo = require('../assets/images/uesi-ts-logo.png');
+export const splashlogo = require('../assets/images/web-logo1.jpeg');
 export const sidenavImage = require('../assets/images/sidenavImage.jpeg');
 export const homeScreen = '../assets/images/home_screen.jpeg';
 

@@ -8,7 +8,7 @@ import Fonts from '@helpers/Fonts';
 import { logfunction } from "@helpers/FunctionHelper";
 
 function HomeCategory(props) {
-
+    console.log(props.data);
     return (
         <View>
             <View style={styles.catHeading} >

@@ -56,11 +56,11 @@ function ContactUsScreen(props) {
         }
     };
     const getDirections =()=>{
-        Linking.openURL('geo:17.627152042575997, 78.35785009836181');
+        Linking.openURL('geo:16.36520373810382, 80.52521503660807');
         
     }
     const openWebsite =()=>{
-        Linking.openURL('https://www.uesits.in/');
+        Linking.openURL('https://www.uesiap.com/');
     }
 
     return (

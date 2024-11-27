@@ -31,7 +31,7 @@ OneSignal.Notifications.addEventListener('click', (event) => {
 
     return (
         <>
-        <StatusBar backgroundColor={"#303c7e"}
+        <StatusBar backgroundColor={"#920b49"}
                 barStyle="light-content" />
          <Provider store={store}>
              <NativeBaseProvider>

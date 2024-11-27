@@ -617,7 +617,7 @@ function SongRegisterScreen(props) {
         }else  if (validate()) {
         var options = {
             description: 'UESI-TS App',
-            image: '../assets/uesi-ts-logo.png',
+            image: '../assets/web-logo1.jpeg',
             currency: 'INR',
             key: 'rzp_live_8VfOQxZZPfUDVl', //'rzp_test_sczJuQC9MiEjRs',
             amount: Number(amount)*100,

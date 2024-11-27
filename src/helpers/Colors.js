@@ -11,7 +11,7 @@ export function Colors() {
   let blackTxt = '#000000';
   let lightWhiteTxt = '#FAFAFA';
   let textColor = "#121533";
-  let headerColor = "#303c7e";
+  let headerColor = "#881349";
 
   // if (theme == 'dark') {
   //   white = '#000';
@@ -24,7 +24,7 @@ export function Colors() {
   // }
 
   return {
-    themeColor: "#303c7e",
+    themeColor: "#881349",
     themeSecondColor: '#ff033e',
     themeThirdColor:'',
     light_white: lightWhite,

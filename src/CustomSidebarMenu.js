@@ -824,7 +824,7 @@ const prepareSearchTheScriptureGroup = (value) => {
 
 const shareApp = ()=>{
   const shareOptions = {
-    message:'\n UESI - Telangana Android App: \n https://play.google.com/store/apps/details?id=com.uesiap.geethavali\n\n'
+    message:'\n UESI - AP Android App: \n https://play.google.com/store/apps/details?id=com.uesiap.geethavali\n\n'
   };
   Share.open(shareOptions)
   .then((res) => {
@@ -1074,11 +1074,11 @@ const preparePrivacyPolicyGroup = (value) => {
       {prepareSearchTheScriptureGroup()}
     </View>
     
-    <View style={styles.sectionContainer}>
+    {/* <View style={styles.sectionContainer}>
         <AccordionItem title="TRICON" titleKey='tricon'>
         {prepareTriconGroup()}
         </AccordionItem>
-    </View>
+    </View> */}
 
     <View style={styles.sectionContainer}>
       {prepareDFDProgramsGroup()}
@@ -1103,9 +1103,9 @@ const preparePrivacyPolicyGroup = (value) => {
     <View style={styles.sectionContainer}>
       {prepareCalendarGroup()}
     </View>
-    <View style={styles.sectionContainer}>
+    {/* <View style={styles.sectionContainer}>
       {prepareJobPortalGroup()}
-    </View>
+    </View> */}
     <View style={styles.sectionContainer}>
       {prepareDonateFreeWillGroup()}
     </View>

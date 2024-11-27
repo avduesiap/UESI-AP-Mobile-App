@@ -425,7 +425,7 @@ function UESIHomeScreen(props) {
                 <OtirxHomeButton />
             </TouchableOpacity> */}
             <Image
-              source={require("../assets/images/home_screen.jpeg")}
+              source={require("../assets/images/home_screen3.jpeg")}
               style={{
                 height: 250,
                 width: width
@@ -844,7 +844,7 @@ function UESIHomeScreen(props) {
                 </List.Accordion>
                 <OtrixDivider></OtrixDivider>
                 <List.Accordion  expanded={expanded21} style={styles.ListAccordion}
-                    title="Union Of Evangelical Students Of India"
+                    title="UESI"
                     onPress={()=>{accordionHandlePress('expanded21',expanded21),accordionHandlePressDynamic(UESIhistoricalEventsDates,'')}}
                     left={props => <Text style={styles.contentText}></Text> }>
                         <View style={{marginLeft:-60}}>
@@ -866,11 +866,11 @@ function UESIHomeScreen(props) {
                 </List.Accordion>
                 <OtrixDivider></OtrixDivider>
                 <List.Accordion  expanded={expanded23} style={styles.ListAccordion}
-                    title="UESI - Telangana"
+                    title="UESI - AP"
                     onPress={()=>{accordionHandlePress('expanded23',expanded23),accordionHandlePressDynamic(UESIhistoricalEventsDates,'')}}
                     left={props => <Text style={styles.contentText}></Text> }>
                         <View style={{marginLeft:-60}}>
-                    <Text style={styles.contentText}>      Telangana State is formed by Indian Government on 2-Jun-2014. Subsequently UESI Telangana became a decentralized unit of UESI in 2015. UESI Telangana has its head office in Hyderabad and is working in all the districts of Telangana State.
+                    <Text style={styles.contentText}> Andrapradesh
                     </Text>
                     </View>
                 </List.Accordion>

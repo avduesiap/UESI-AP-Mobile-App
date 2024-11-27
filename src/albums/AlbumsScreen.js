@@ -135,7 +135,7 @@ const AlbumsScreen = (props) => {
                         borderWidth: 1,
                         width:150,
                         height:40,
-                        borderColor: '#303c7e'}} 
+                        borderColor: '#881349'}} 
                 onPress={() => openSongRegistrationPage()}>
               <Text style={styles.buttonText}>Get Songs</Text>
         </Button>
@@ -153,7 +153,7 @@ const AlbumsScreen = (props) => {
                         borderWidth: 1,
                         width:150,
                         height:40,
-                        borderColor: '#303c7e'}} 
+                        borderColor: '#881349'}} 
                 onPress={() => openSongPage(album)}>
               <Text style={styles.buttonText}>Listen Songs</Text>
         </Button>
