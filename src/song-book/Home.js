@@ -40,7 +40,10 @@ const newTotalSongs =  require('../common/new-song-index-list.json');
 import RenderHtml from 'react-native-render-html';
 import { bindActionCreators } from "redux";
 import { selectSong,setSongType } from '@actions';
+import Pdf from 'react-native-pdf';
 import { connect } from 'react-redux';
+import { GlobalStyles, Colors } from '@helpers';
+import { useNetInfo } from "@react-native-community/netinfo";
 let selectedSongToShare = '';
 const Home = (props) => {
   //console.log(props.songType)
@@ -54,13 +57,19 @@ const Home = (props) => {
   const [trackTitle, setTrackTitle] = useState();
   const [trackArtist, setTrackArtist] = useState();
   const [trackArtwork, setTrackArtwork] = useState();
+  const [currentSong, setCurrentSong] = useState();
+  const [showChords, setShowChords] = React.useState(true);
+  const [pdfUrl, setPdfUrl] = useState('');
+  const [percentage, setPercentage] = useState(0);
   // custom referecnces
   const scrollX = useRef(new Animated.Value(0)).current;
   const songSlider = useRef(null);
+  const { type, isConnected } = useNetInfo();
 
   useFocusEffect(
     useCallback(() => {
-      selectedSongToShare = props.selectedSong;
+      selectedSongToShare = props?.selectedSong;
+      setPdfUrl(props?.selectedSong?.lyric_song_link);
     }))
   const goback = (song) =>{
     try{
@@ -92,6 +101,7 @@ const Home = (props) => {
           TrackPlayer.reset();
           props.selectSong(totalSongs[count]);
           selectedSongToShare = totalSongs[count];
+          setPdfUrl(totalSongs[count].lyric_song_link);
           props.navigation.navigate('Home');
           try{
             totalSongs[count].song[0].artwork = require('../assets/images/web-logo.png');
@@ -111,6 +121,7 @@ const Home = (props) => {
           TrackPlayer.reset();
           props.selectSong(totalSongs[count]);
           selectedSongToShare = totalSongs[count];
+          setPdfUrl(totalSongs[count].lyric_song_link);
           props.navigation.navigate('Home');
           try{
             totalSongs[count].song[0].artwork = require('../assets/images/web-logo.png');
@@ -367,7 +378,7 @@ const Home = (props) => {
 
   const shareSong = ()=>{
     const shareOptions = {
-      message:'\n UESI - Vidyarthi_Geethavali Android App: \n https://play.google.com/store/apps/details?id=com.uesiap.geethavali\n\n'+selectedSongToShare.local_text
+      message:'\n UESI - Vidyarthi_Geethavali Android App: \n https://play.google.com/store/apps/details?id=com.uesits.geethavali\n\n'+selectedSongToShare.local_text
     };
     Share.open(shareOptions)
     .then((res) => {
@@ -388,7 +399,8 @@ const Home = (props) => {
         {(props.songType==='english' || props.songType==='hindi')?<Text style={[styles.englishFont,{color:'#000000',fontSize:18,height:30,width:250,textAlign:'center'}]}>{props.selectedSong.local_id}. {props.selectedSong.local_title} </Text>:''}
         <Button onPress={()=>nextSong(props.selectedSong)}><Ionicons name='arrow-forward' size={30} color="#000000" /></Button>
       </View>
-      <ScrollView>
+      {(!isConnected || props?.selectedSong?.lyric_song_link=='') ?<ScrollView style={{backgroundColor:'#ffffff'}}>
+      
         <View style={{paddingLeft:10, paddingRight:10}}>
           <View style={{display:'flex', flexDirection:'row',justifyContent:'center',alignItems:'flex-end',marginBottom:10}}>
             <Text style={{color:'#000000',fontSize:25,fontWeight:'bold'}}>{props.selectedSong.song_chord}</Text>
@@ -401,7 +413,47 @@ const Home = (props) => {
           {props.selectedSong.local_text}
           </Text>:null}
         </View>
-      </ScrollView>
+        
+      </ScrollView>:
+      <>
+      <View style={{marginBottom:5,marginRight:10,marginTop:-15}}>
+      <View style={{display:'flex', flexDirection:'row',justifyContent:'center',alignItems:'flex-end',marginBottom:2}}>
+            <Text style={{color:'#000000',fontSize:20,fontWeight:'bold'}}>{props.selectedSong.song_chord}</Text>
+            <Text style={{color:'#000000',fontSize:14,fontWeight:'bold',position:"absolute",right:0}}>{props?.selectedSong?.song[0]?.artist}</Text>
+          </View>
+        </View>
+      <View style={{flex: 1, justifyContent: 'flex-start', alignItems:'flex-start',backgroundColor:'#ffffff'}}>
+      {pdfUrl!=''?<Pdf
+    trustAllCerts={false}
+    source={{
+      uri: pdfUrl,
+    }}
+    page={1}
+    scale={1.0}
+    minScale={0.5}
+    maxScale={3.0}
+    renderActivityIndicator={() => (
+        <>
+      <ActivityIndicator size="large" color={Colors().themeColor} />
+      <Text style={{color:Colors().themeColor,fontSize:20, fontFamily:Fonts.Font_Reguler}}>{percentage}% Loaded...</Text>
+      </>
+    )}
+    enablePaging={true}
+    onLoadProgress={(percentage) => {
+        setPercentage((percentage*100).toFixed(0));
+    }}
+    onLoadComplete={() => console.log('Loading Complete')}
+    onPageChanged={(page, totalPages) => console.log(`${page}/${totalPages}`)}
+    onError={(error) => console.log(error)}
+    //onPageSingleTap={(page) => alert(page)}
+    onPressLink={(link) => Linking.openURL(link)}
+    onScaleChanged={(scale) => console.log(scale)}
+    // singlePage={true}
+    spacing={5}
+    // horizontal
+    style={{flex: 1, backgroundColor:'#ffffff', width: Dimensions.get('window').width, height: Dimensions.get('window').height, paddingBottom:120}}
+  />:null}</View></>
+      }
 
       {/* bottom section */}
       {(props.selectedSong.song && props.selectedSong.song[0] && props.selectedSong.song[0].url!=='')?audioPlayer():noAudioPlayer()}
@@ -435,6 +487,7 @@ const style = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: '#ffffff'
   },
   bottomSection: {
     //borderTopColor: '#000000',
