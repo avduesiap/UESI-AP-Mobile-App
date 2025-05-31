@@ -29,6 +29,24 @@ build/
 .gradle/
 local.properties
 *.iml
+.idea/
+.idea/caches/
+.idea/libraries/
+.idea/modules.xml
+.idea/workspace.xml
+.idea/gradle.xml
+.idea/usage.statistics.xml
+.idea/dictionaries/
+.idea/httpRequests/
+.DS_Store
+Thumbs.db
+
+app/build/
+*/build/
+*.apk
+*.ap_
+*.dex
+*.class
 
 # node.js
 #
