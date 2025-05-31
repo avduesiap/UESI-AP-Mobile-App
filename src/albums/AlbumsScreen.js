@@ -47,7 +47,7 @@ const AlbumsScreen = (props) => {
       getCustomerData();
       
         async function callAPI(access_user) {
-          console.log(access_user);
+          //console.log(access_user);
           let sendData = new FormData();
             sendData.append('type', '');
           try {
