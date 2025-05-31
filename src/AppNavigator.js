@@ -66,6 +66,7 @@ import MagazineListScreen from './Velugu/MagazineListScreen';
 import AlbumsScreen from './albums/AlbumsScreen';
 import AlbumSongScreen from './albums/AlbumSongScreen';
 import AlbumSongsListScreen from './albums/AlbumSongsListScreen';
+import VideoSongsScreen from './song-book/VideoSongsScreen';
 
 let cartCount = 0;
 let globalAuthStatus = false;
@@ -263,7 +264,7 @@ const DrawerNavigator = () => {
             },
             drawerKey:'home'
           }}/>
-          <Drawer.Screen name="Upcoming Programs" component={UpComingProgramsScreen} options={{
+          {/* <Drawer.Screen name="Upcoming Programs" component={UpComingProgramsScreen} options={{
             drawerLabel: 'Upcoming Programs',
             title: 'Upcoming Programs',
             groupName: 'upcomming-programs',
@@ -274,7 +275,7 @@ const DrawerNavigator = () => {
             headerTitleStyle: {
                 fontWeight: 'bold',
             }
-          }}/>
+          }}/> */}
         <Drawer.Screen name="Telugu Songs" component={TeluguSongsScreen} options={{
             drawerLabel: 'Telugu Songs',
             title: 'Telugu Songs',
@@ -356,7 +357,7 @@ const DrawerNavigator = () => {
             },
             drawerKey:'get-all-songs'
           }}/> */}
-        <Drawer.Screen name="Order Books" component={MyTabs}  options={{
+        {/* <Drawer.Screen name="Order Books" component={MyTabs}  options={{
             headerShown: false,
             drawerLabel: 'Order Books',
             title: 'Order Books',
@@ -368,10 +369,10 @@ const DrawerNavigator = () => {
             headerTitleStyle: {
                 fontWeight: 'bold',
             },
-          }}/>
-        <Drawer.Screen name="TRICON-2023" component={Tricon2023Screen} options={{
-            drawerLabel: 'TRICON-2023',
-            title: 'TRICON-2023',
+          }}/> */}
+        {/* <Drawer.Screen name="TRICON-2023" component={Tricon2023Screen} options={{
+            drawerLabel: 'Video Songs',
+            title: 'video-songs',
             groupName: 'tricon',
             headerStyle: {
                 backgroundColor: Colors().themeColor,
@@ -389,8 +390,8 @@ const DrawerNavigator = () => {
                 fontWeight: 'bold',
             },
             drawerKey:'tricon-2023'
-          }}/>
-          <Drawer.Screen name="TRICON-2020" component={Tricon2020Screen} options={{
+          }}/> */}
+          {/* <Drawer.Screen name="TRICON-2020" component={Tricon2020Screen} options={{
             drawerLabel: 'TRICON-2020',
             title: 'TRICON-2020',
             groupName: 'tricon',
@@ -410,8 +411,8 @@ const DrawerNavigator = () => {
                 fontWeight: 'bold',
             },
             drawerKey:'tricon-2020'
-          }}/>
-          <Drawer.Screen name="DFDProgramsScreen" component={TeachingTrainingScreen} options={{
+          }}/> */}
+          {/* <Drawer.Screen name="DFDProgramsScreen" component={TeachingTrainingScreen} options={{
             drawerLabel: 'Teaching & Training',
             title: 'Teaching & Training',
             groupName: 'dfd-programs',
@@ -431,7 +432,7 @@ const DrawerNavigator = () => {
                 fontWeight: 'bold',
             },
             drawerKey:'dfd-programs'
-          }}/>
+          }}/> */}
         <Drawer.Screen name="Vidyarthi Jwala" component={MagazineListScreen}  options={{
             drawerLabel: 'Vidyarthi Jwala',
             title: 'Vidyarthi Jwala',
@@ -446,7 +447,7 @@ const DrawerNavigator = () => {
             drawerKey:'vidyarthi-velugu'
           }}/>
 
-        <Drawer.Screen name="Campus Connect" component={MagazineScreen}  options={{
+        {/* <Drawer.Screen name="Campus Connect" component={MagazineScreen}  options={{
             drawerLabel: 'Campus Connect',
             title: 'Campus Connect',
             groupName: 'magazines',
@@ -458,8 +459,8 @@ const DrawerNavigator = () => {
                 fontWeight: 'bold',
             },
             drawerKey:'campus-connect'
-          }}/>
-          <Drawer.Screen name="In Touch" component={MagazineScreen}  options={{
+          }}/> */}
+          {/* <Drawer.Screen name="In Touch" component={MagazineScreen}  options={{
             drawerLabel: 'In Touch',
             title: 'In Touch',
             groupName: 'magazines',
@@ -471,7 +472,7 @@ const DrawerNavigator = () => {
                 fontWeight: 'bold',
             },
             drawerKey:'in-touch'
-          }}/>
+          }}/> */}
           {/* <Drawer.Screen name="Our Field" component={MagazineScreen}  options={{
             drawerLabel: 'Our Field',
             title: 'Our Field',
@@ -510,7 +511,19 @@ const DrawerNavigator = () => {
                 fontWeight: 'bold',
             },
           }}/>
-          <Drawer.Screen name="DonateFreeWillScreen" component={DonateFreeWillScreen}  options={{
+          <Drawer.Screen name="VideoSongsScreen" component={VideoSongsScreen}  options={{
+            drawerLabel: 'Video Songs',
+            title: 'Video Songs',
+            groupName: 'video-songs',
+            headerStyle: {
+                backgroundColor: Colors().themeColor,
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+                fontWeight: 'bold',
+            },
+          }}/>
+          {/* <Drawer.Screen name="DonateFreeWillScreen" component={DonateFreeWillScreen}  options={{
             drawerLabel: 'Donate a Gift',
             title: 'Donate a Gift',
             groupName: 'donate-free-will',
@@ -521,7 +534,7 @@ const DrawerNavigator = () => {
             headerTitleStyle: {
                 fontWeight: 'bold',
             },
-          }}/>
+          }}/> */}
           <Drawer.Screen name="MaterialsScreen" component={MaterialsScreen}  options={{
             drawerLabel: 'Materials',
             title: 'Materials',
@@ -546,7 +559,7 @@ const DrawerNavigator = () => {
                 fontWeight: 'bold',
             },
           }}/>
-        {/* <Drawer.Screen name="Prayer Points" component={PrayerPointsScreen}  options={{
+        <Drawer.Screen name="Prayer Points" component={PrayerPointsScreen}  options={{
             drawerLabel: 'Prayer Points',
             title: 'Prayer Points',
             groupName: 'prayer-points',
@@ -557,7 +570,7 @@ const DrawerNavigator = () => {
             headerTitleStyle: {
                 fontWeight: 'bold',
             },
-          }}/> */}
+          }}/>
           <Drawer.Screen name="Music Player" component={AudioSongsScreen}  options={{
             drawerLabel: 'Music Player',
             title: 'Music Player',
@@ -584,7 +597,7 @@ const DrawerNavigator = () => {
           }}/>
 
           <Drawer.Screen name="SearchTheScriptureScreen" component={SearchTheScriptureScreen}  options={{
-            drawerLabel: 'Search the Scriptures',
+            drawerLabel: 'Lekhanamulanu Parishodhinchudi',
             title: 'Search the Scriptures',
             groupName: 'search-the-scripture',
             headerStyle: {

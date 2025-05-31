@@ -19,7 +19,7 @@ import {
   OtrixContainer, OtrixHeader, OtrixContent, OtrixDivider, OtrixAlert, OtrixLoader
 } from '@component';
 const LeftContent = props => <Avatar.Icon {...props} icon="folder" />
-const AlbumsScreen = (props) => { 
+const VideoSongsScreen = (props) => { 
   const [formData, setData] = React.useState({ type:null, firstName: null, lastName: null, email: null, mobileNumber: null, password: null, cpassword: null, submited: false, type: null, message: null, loading: false });
     const [songsList, setSongsList] = useState([]); 
     const [showLoader,setShowLoader]=useState(true);
@@ -30,40 +30,38 @@ const AlbumsScreen = (props) => {
     
     useFocusEffect(
       useCallback(() => {
-       // const { triconType } = props.route.params;
-       // setTriconType1(triconType);
-        async function getCustomerData() {
-          await AsyncStorage.getItem("CUSTOMER_DATA").then(data=>{
-              setCustmerData(JSON.parse(data));
-              getUserAccess();
-          });
-      }
-      async function getUserAccess() {
-        await AsyncStorage.getItem("USER_ACCESS").then(data=>{
-          setUserAccess(JSON.parse(data));
-            callAPI(JSON.parse(data));
-        });
-    }
-      getCustomerData();
+        //const { triconType } = props.route.params;
+        //setTriconType1(triconType);
+      //   async function getCustomerData() {
+      //     await AsyncStorage.getItem("CUSTOMER_DATA").then(data=>{
+      //         setCustmerData(JSON.parse(data));
+      //         getUserAccess();
+      //     });
+      // }
+    //   async function getUserAccess() {
+    //     await AsyncStorage.getItem("USER_ACCESS").then(data=>{
+    //       setUserAccess(JSON.parse(data));
+    //         callAPI(triconType,JSON.parse(data));
+    //     });
+    // }
+      //getCustomerData();
       
-        async function callAPI(access_user) {
-          console.log(access_user);
+        async function callAPI() {
           let sendData = new FormData();
-            sendData.append('type', '');
+            sendData.append('type', 'video-songs');
           try {
             setShowLoader(true);
            getApi.postData(
-               "user/getAlbums",
+               "user/getVideoSongs",
                sendData
            ).then(( async response => {
-            console.log(JSON.stringify(response));
+            console.log(response);
             setShowLoader(false);
                if(response.status === 1){
                 let filteredVideos = [];
-                setSongsList(response.data);
-                // if(access_user && access_user.tricon_2023==1){
-                //   setSongsList(response.data);
-                //   //setFilteredSongsList(response.data);
+               // if(access_user && access_user.tricon_2023==1){
+                  setSongsList(response.data);
+                  //setFilteredSongsList(response.data);
                 // }else{
                 //   if(response.data.length>0){
                 //     setSongsList([response.data[0]]);
@@ -79,6 +77,7 @@ const AlbumsScreen = (props) => {
          console.log(error);
        }
        }
+       callAPI();
       //  setTimeout(()=>{
       //   console.log(triconType);
       //   callAPI(triconType);
@@ -89,25 +88,12 @@ const AlbumsScreen = (props) => {
     }, [props.navigation]);
 
     const openSongRegistrationPage = () => {
-      props.setPaymentModuleType('nuthana_jeevam');
+      props.setPaymentModuleType('tricon_2023');
        //props.navigation.navigate('PaymentScreen');  
        if(custmerData){
-        props.navigation.navigate('PaymentScreen',{paymentModuleType:'nuthana_jeevam'});
+        props.navigation.navigate('PaymentScreen',{paymentModuleType:'tricon_2023'});
       }else{
-        props.navigation.push("LoginScreen",{paymentModuleType:'nuthana_jeevam'});
-      }
-       //props.navigation.navigate('SongRegisterScreen');
-       
- 
-     }
-
-     const openSongsListPage = () => {
-      props.setPaymentModuleType('nuthana_jeevam');
-       //props.navigation.navigate('PaymentScreen');  
-       if(custmerData){
-        props.navigation.navigate('PaymentScreen',{paymentModuleType:'nuthana_jeevam'});
-      }else{
-        props.navigation.push("LoginScreen",{paymentModuleType:'nuthana_jeevam'});
+        props.navigation.push("LoginScreen",{paymentModuleType:'tricon_2023'});
       }
        //props.navigation.navigate('SongRegisterScreen');
        
@@ -129,48 +115,26 @@ const AlbumsScreen = (props) => {
     const showPaymentButton = () => {
       return (
         <>
-        <View style={{alignItems:'center',marginBottom:10, marginTop:-5}}>
-        <Button style={{backgroundColor: '#FFFFFF',
-                        borderRadius: 10,
-                        borderWidth: 1,
-                        width:150,
-                        height:40,
-                        borderColor: '#881349'}} 
-                onPress={() => openSongRegistrationPage()}>
-              <Text style={styles.buttonText}>Get Songs</Text>
-        </Button>
-        </View>
-        </>
-      );
-    };
-
-    const showSongsButton = (album) => {
-      return (
-        <>
-        <View style={{alignItems:'center',marginBottom:10, marginTop:-5}}>
-        <Button style={{backgroundColor: '#FFFFFF',
-                        borderRadius: 10,
-                        borderWidth: 1,
-                        width:150,
-                        height:40,
-                        borderColor: '#881349'}} 
-                onPress={() => openSongPage(album)}>
-              <Text style={styles.buttonText}>Listen Songs</Text>
-        </Button>
-        </View>
-        </>
+        <View style={styles.bottomSection}>
+          <View style={styles.bottomIconContainer}>
+          <OtrixContent>
+            <Button style={{marginTop:-10}} onPress={() => openSongRegistrationPage()}>
+                      <Text style={styles.buttonText}>Get all Videos</Text>
+            </Button>
+          </OtrixContent>
+            </View>
+            </View>
+            <OtrixDivider size={'md'} />
+            </>
       );
     };
 
     const openSongPage = (video)=> {
-      if(userAccess && userAccess.nuthana_jeevam==1){
-        props.navigation.navigate('AlbumSongsListScreen',{
-          selectedVideo: video
-        });
-      }else{
-        openSongRegistrationPage();
-      }
-       
+      //props.selectSong(song);
+      //props.setSongType('telugu');
+      props.navigation.navigate('VideoPlayerScreen',{
+        selectedVideo: video
+      });
     }
 
   return (
@@ -199,26 +163,14 @@ const AlbumsScreen = (props) => {
             renderItem={({item}) => 
             <View style={{padding:10}}>
                     <Card mode="contained" onPress={()=>openSongPage(item)}>
-                      <View style={{display:'flex', flexDirection:'row'}}>
-                          <View style={{height:90,width:100}}><Card.Cover style={{height:120,width:100}} source={{ uri: item.image }} /></View>
-                          <View style={{paddingLeft:5,paddingRight:5}}>
-                          <Text style={{paddingTop:5, paddingLeft:5,color:'#000', fontFamily:Fonts.Font_Bold, fontSize:15}}>Album: <Text style={{color:'#000', fontFamily:Fonts.Font_Medium, fontSize:15}}>{item.title}</Text>
-                      </Text>
-                      {item.student_amount?<Text style={{paddingLeft:5,color:'#000', fontFamily:Fonts.Font_Bold, fontSize:15}}>Price (Student): <Text style={{color:'#000', fontFamily:Fonts.Font_Medium, fontSize:15}}>{item.student_amount}/-</Text>
-                      </Text>:null}
-                      {item.graduate_amount?<Text style={{paddingLeft:5,color:'#000', fontFamily:Fonts.Font_Bold, fontSize:15}}>Price (Graduate): <Text style={{color:'#000', fontFamily:Fonts.Font_Medium, fontSize:15}}>{item.graduate_amount}/-</Text>
-                      </Text>:null}
-                      <Text style={{paddingLeft:5,color:'#000', fontFamily:Fonts.Font_Bold, fontSize:15}}>Released On: <Text style={{color:'#000', fontFamily:Fonts.Font_Medium, fontSize:15}}>{item.release_date}</Text>
-                      </Text>
-                      </View>
-                      </View>
-                      {userAccess && userAccess.nuthana_jeevam==1?showSongsButton(item):showPaymentButton()}
+                      <Card.Cover source={{ uri: item.thumb_url }} />
+                      <Text style={{paddingTop:5, paddingLeft:5,color:'#000', fontFamily:Fonts.Font_Medium, fontSize:15}}>{item.small_description}</Text>
                     </Card>
                   <Divider style={{ backgroundColor: '#5b5c5c' }} />
             </View>}
           />
       </ScrollView>
-      
+      {/* {userAccess && userAccess.tricon_2023==1?null:showPaymentButton()} */}
       </View>
     </SafeAreaView>
     </>
@@ -231,7 +183,7 @@ function mapStateToProps(state) {
       selectedSong: state.song.selectedSong,
       songType: state.song.songType,
       songsDonated: state.song.songsDonated,
-      //triconType: state.song.triconType,
+      triconType: state.song.triconType,
       paymentModuleType: state.song.paymentModuleType
   }
 }
@@ -246,50 +198,51 @@ const mapDispatchToProps = dispatch => (
       setPaymentModuleType
   }, dispatch)
 );
-export default connect(mapStateToProps, mapDispatchToProps) (AlbumsScreen);
+export default connect(mapStateToProps, mapDispatchToProps) (VideoSongsScreen);
 
 const styles = StyleSheet.create({
   bottomSection: {
-    // borderTopColor: '#000000',
-    // borderTopWidth: 0.5,
-    // width: width,
-    // alignItems: 'center',
-    // paddingVertical: 20,
-    // position:'absolute',
-    // top:height-200,
-    // backgroundColor:'#ffffff'
+    borderTopColor: '#000000',
+    borderTopWidth: 0.5,
+    width: width,
+    alignItems: 'center',
+    paddingVertical: 20,
+    position:'absolute',
+    top:height-200,
+    backgroundColor:'#ffffff'
   },
   centerSection:{
-    // borderTopColor: '#000000',
-    // borderTopWidth: 0.5,
-    // width: width,
-    // alignItems: 'center',
-    // paddingVertical: 20,
-    // position:'absolute',
-    // top:height-200,
-    // backgroundColor:'#ffffff',
-    // zIndex:99999
+    borderTopColor: '#000000',
+    borderTopWidth: 0.5,
+    width: width,
+    alignItems: 'center',
+    paddingVertical: 20,
+    position:'absolute',
+    top:height-200,
+    backgroundColor:'#ffffff',
+    zIndex:99999
   },
   bottomIconContainer: {
-    // flexDirection: 'row',
-    // //justifyContent: 'space-between',
-    // width: '80%',
-    // marginLeft:-50
+    flexDirection: 'row',
+    //justifyContent: 'space-between',
+    width: '80%',
+    marginLeft:-50
   },
   donateButton:{
-    // height: Platform.isPad === true ? wp('6%') : wp('11%'),
-    // alignItems: 'flex-start',
-    // flexDirection: 'row',
-    // justifyContent: 'flex-start',
-    // shadowColor: 'rgba(0,0,0, .4)',
-    // shadowOffset: { height: 1, width: 1 },
-    // shadowOpacity: 1,
-    // shadowRadius: 1,
-    // elevation: 2
+    height: Platform.isPad === true ? wp('6%') : wp('11%'),
+    alignItems: 'center',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    shadowColor: 'rgba(0,0,0, .4)',
+    shadowOffset: { height: 1, width: 1 },
+    shadowOpacity: 1,
+    shadowRadius: 1,
+    elevation: 2
   },
   buttonText: {
-     fontFamily: Fonts.Font_Bold,
-     color: Colors().themeColor
+    fontFamily: Fonts.Font_Bold,
+    color: Colors().themeColor,
+    fontSize: Platform.isPad === true ? wp('2.5%') : wp('3.5%'),
   },
     table:{
         backgroundColor: Colors().themeColor,

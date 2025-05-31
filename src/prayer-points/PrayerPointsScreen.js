@@ -1,120 +1,80 @@
-import React, { useEffect } from "react";
-import {
-    View,
-    TouchableOpacity,
-    Text,
-    useWindowDimensions,
-    StyleSheet,
+import React from "react";
+import { 
+  View, 
+  Text, 
+  Linking, 
+  TouchableOpacity, 
+  StyleSheet,
+  SafeAreaView 
 } from "react-native";
-import { connect } from 'react-redux';
-import {
-    OtrixContainer, OtrixHeader, OtrixDivider, OtirxBackButton, OtrixContent, OtrixLoader
-} from '@component';
-import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
-import { GlobalStyles, Colors } from '@helpers';
-import Fonts from "@helpers/Fonts";
-import getApi from "@apis/getApi";
-import { logfunction } from "@helpers/FunctionHelper";
-import RenderHtml from 'react-native-render-html';
 
-function PrayerPointsScreen(props) {
-
-    const [state, setState] = React.useState({ content: [], loading: true, heading: null });
-    const { content, heading, loading } = state;
-
-
-    useEffect(() => {
-        getApi.getData(
-            "getPages/4",
-            [],
-        ).then((response => {
-            if (response.status == 1) {
-                logfunction("RESPONSEEE ", response)
-                setState({
-                    ...state,
-                    heading: response.data.heading,
-                    content: response.data.description,
-                    loading: false
-                });
-            }
-        }));
-    }, []);
-
-    const { width } = useWindowDimensions();
-    const tagsStyles = {
-        p: {
-            color: Colors().black,
-            fontFamily: Fonts.Font_Reguler,
-            fontSize: wp('3.5%'),
-            lineHeight: hp('2.4%'),
-        }
+const PrayerPointsScreen = () => {
+    const handlePress = () => {
+        Linking.openURL("https://forms.gle/Pv4nYwViBz8wbiHu5")
+          .catch(() => alert("Could not open the link. Please try again later."));
     };
 
     return (
-        <View customStyles={{ backgroundColor: Colors().light_white }}>
-
-            {/* Header */}
-            {/* <OtrixHeader customStyles={{ backgroundColor: Colors().light_white }}>
-                <TouchableOpacity style={GlobalStyles.headerLeft} onPress={() => props.navigation.goBack()}>
-                    <OtirxBackButton />
+        <SafeAreaView style={styles.container}>
+            <View style={styles.content}>
+                <TouchableOpacity 
+                    style={styles.button}
+                    onPress={handlePress}
+                    accessibilityLabel="Submit prayer points"
+                    accessibilityHint="Opens a form to submit your prayer requests"
+                    activeOpacity={0.7}
+                >
+                    <Text style={styles.buttonText}>
+                        Send Your Prayer Points To <Text style={{fontWeight: 'bold'}}>Our Field</Text>
+                    </Text>
                 </TouchableOpacity>
-                <View style={[GlobalStyles.headerCenter, { flex: 1 }]}>
-                    <Text style={GlobalStyles.headingTxt}> {heading}</Text>
-                </View>
-            </OtrixHeader> */}
-
-            {/* Orders Content start from here */}
-            {
-                loading && <OtrixLoader />
-            }
-            {
-                !loading && <OtrixContent>
-                    <View style={styles.box}>
-                        <RenderHtml
-                            contentWidth={width}
-                            source={{
-                                html: content
-                            }}
-                            tagsStyles={tagsStyles}
-                        />
-                    </View>
-                    <OtrixDivider size={'md'} />
-                </OtrixContent>
-            }
-
-
-        </View >
-
-    )
-}
-
-function mapStateToProps(state) {
-    return {
-
-    }
-}
-
-
-export default connect(mapStateToProps, {})(PrayerPointsScreen);
+            </View>
+        </SafeAreaView>
+    );
+};
 
 const styles = StyleSheet.create({
-
-    box: {
-        justifyContent: 'center',
-        alignItems: 'center',
-        padding: hp('1.5%'),
-        backgroundColor: Colors().white,
-        marginVertical: hp('1%'),
-        marginHorizontal: wp('1%'),
-        borderRadius: wp('2%'),
-        borderWidth: 0.5,
-        borderColor: Colors().custom_gray
+    container: {
+        flex: 1,
+        backgroundColor: "#f8f9fa",
     },
-    txt: {
-        fontSize: wp('4%'),
-        fontFamily: Fonts.Font_Medium,
-        color: Colors().text_color,
-        textAlign: 'left'
-    }
-
+    content: {
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+        paddingHorizontal: 24,
+    },
+    // title: {
+    //     fontSize: 22,
+    //     fontWeight: "600",
+    //     color: "#343a40",
+    //     marginBottom: 12,
+    //     textAlign: "center",
+    // },
+    // description: {
+    //     fontSize: 16,
+    //     color: "#6c757d",
+    //     textAlign: "center",
+    //     marginBottom: 32,
+    //     lineHeight: 24,
+    //     maxWidth: "80%",
+    // },
+    button: {
+        backgroundColor: "#4267B2",
+        paddingVertical: 12,
+        paddingHorizontal: 24,
+        borderRadius: 6,
+        elevation: 2,
+        shadowColor: "#000",
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.2,
+        shadowRadius: 4,
+    },
+    buttonText: {
+        fontSize: 18,
+        fontWeight: "500",
+        color: "#fff",
+    },
 });
+
+export default PrayerPointsScreen;

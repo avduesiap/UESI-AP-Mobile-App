@@ -525,6 +525,40 @@ const prepareCalendarGroup = (value) => {
     
 }
 
+const prepareVideoSongsGroup = (value) => {
+  return state.routes?.map((route, index) => {
+    const {
+      drawerLabel,
+      activeTintColor,
+      groupName
+    } = descriptors[route.key].options;
+    return (
+      groupName==='video-songs'?
+    <DrawerItem
+        key={route.key}
+        label={
+          ({color}) =>
+          <>
+          <View style={styles.accordHeader1}>
+            <Icon style={{paddingRight:15,width:40,textAlign:'right'}} name='video-camera' size={25} color="#FFFFFF" />
+              <View style={{flex: 1,flexDirection: 'row', justifyContent:'space-between'}}>
+                <Text style={{color:'#FFFFFF',fontSize:16,marginLeft:3, marginTop:2, fontFamily:Fonts.Font_Medium}}>{drawerLabel}</Text>
+              </View>
+              </View>
+            </>
+        }
+        focused={
+          state.routes.findIndex(
+            (e) => e.name === route.name
+          ) === state.index
+        }
+        onPress={() => navigation.navigate(route.name)}
+    />:null
+    )
+})
+    
+}
+
 const prepareDonateFreeWillGroup = (value) => {
   return state.routes?.map((route, index) => {
     const {
@@ -1066,6 +1100,9 @@ const preparePrivacyPolicyGroup = (value) => {
     </View>
     <View style={styles.sectionContainer}>
       {prepareMusicAlbumsGroup()}
+    </View>
+    <View style={styles.sectionContainer}>
+      {prepareVideoSongsGroup()}
     </View>
     <View style={styles.sectionContainer}>
       {prepareHistoricalDatesEventsGroup()}

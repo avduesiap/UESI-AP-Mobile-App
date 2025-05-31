@@ -616,12 +616,12 @@ function SongRegisterScreen(props) {
             return false;
         }else  if (validate()) {
         var options = {
-            description: 'UESI-TS App',
+            description: 'UESI-AP App',
             image: '../assets/web-logo1.jpeg',
             currency: 'INR',
-            key: 'rzp_live_8VfOQxZZPfUDVl', //'rzp_test_sczJuQC9MiEjRs',
+            key: 'rzp_live_TGbm3Vx4WfwZ4i', //'rzp_test_sczJuQC9MiEjRs',
             amount: Number(amount)*100,
-            name: 'UESI-TS',
+            name: 'UESI-AP',
             order_id: '',//Replace this with an order_id created using Orders API.
             prefill: {
               email: email,

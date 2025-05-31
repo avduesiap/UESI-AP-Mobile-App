@@ -45,7 +45,7 @@ function CalendarScreen(props,{ route, navigation }) {
 
     useFocusEffect(
         useCallback(() => {
-            setPdfUrl('https://app.uesits.com/calendar/calendar.pdf');
+            setPdfUrl('https://avduesiap.in/calendar/calendar.pdf');
         }, [])
       )
 
