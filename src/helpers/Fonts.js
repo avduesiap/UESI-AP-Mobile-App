@@ -7,6 +7,7 @@ const Fonts = {
     Font_Reguler:  'Poppins-Regular',
     Font_Medium: 'Poppins-Medium',
     Font_Semibold: 'Poppins-SemiBold', 
-    Font_Bold:  'Poppins-Bold'
+    Font_Bold:  'Poppins-Bold',
+    Telugu_Mandali: 'Mandali'
 }
 export default Fonts;

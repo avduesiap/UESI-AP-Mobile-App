@@ -865,15 +865,48 @@ function UESIHomeScreen(props) {
                     </View>
                 </List.Accordion>
                 <OtrixDivider></OtrixDivider>
-                <List.Accordion  expanded={expanded23} style={styles.ListAccordion}
-                    title="UESI - AP"
-                    onPress={()=>{accordionHandlePress('expanded23',expanded23),accordionHandlePressDynamic(UESIhistoricalEventsDates,'')}}
-                    left={props => <Text style={styles.contentText}></Text> }>
-                        <View style={{marginLeft:-60}}>
-                    <Text style={styles.contentText}> Andrapradesh
-                    </Text>
-                    </View>
-                </List.Accordion>
+                <List.Accordion
+                expanded={expanded23}
+                style={styles.ListAccordion}
+                title="UESI - AP"
+                onPress={() => {
+                  accordionHandlePress("expanded23", expanded23),
+                    accordionHandlePressDynamic(UESIhistoricalEventsDates, "");
+                }}
+                left={(props) => <Text style={styles.contentText}></Text>}
+              >
+                <View style={{ marginLeft: -60 }}>
+                  <Text style={styles.contentText}>
+                    {"      "}The Union of Evangelical Students of India (UESI)
+                    has significantly impacted student ministry in Andhra
+                    Pradesh (AP) since its inception. Here's a concise overview
+                    of its history:
+                  </Text>
+                  <Text style={styles.contentText}>
+                    {"      "}Early Beginnings (1949–1958): In 1949, Bible
+                    studies were initiated in Nellore, leading to the formation
+                    of the first Evangelical Union (EU) in Guntur in 1958. That
+                    same year, UESI's second national conference was held in
+                    Hyderabad, marking a pivotal moment for student ministry in
+                    the region.
+                  </Text>
+                  <Text style={styles.contentText}>
+                    {"      "}Expansion and Leadership Development
+                    (1960s–1970s): Throughout the 1960s and 1970s, student
+                    ministries expanded across AP, with notable growth in
+                    Warangal, Kakinada, and Visakhapatnam. Leadership training
+                    camps began in 1977, and the state was divided into four
+                    regions to better manage the growing ministry.
+                  </Text>
+                  <Text style={styles.contentText}>
+                    {"      "}Decentralization and Growth (1980s): In 1984,
+                    UESI-AP was established, decentralizing the ministry to
+                    enhance regional engagement. A permanent conference center
+                    was acquired in Nambur in 1987, providing a dedicated space
+                    for events and training.
+                  </Text>
+                </View>
+              </List.Accordion>
                 
                     
             </Card.Content>

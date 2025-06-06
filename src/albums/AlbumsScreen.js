@@ -204,9 +204,9 @@ const AlbumsScreen = (props) => {
                           <View style={{paddingLeft:5,paddingRight:5}}>
                           <Text style={{paddingTop:5, paddingLeft:5,color:'#000', fontFamily:Fonts.Font_Bold, fontSize:15}}>Album: <Text style={{color:'#000', fontFamily:Fonts.Font_Medium, fontSize:15}}>{item.title}</Text>
                       </Text>
-                      {item.student_amount?<Text style={{paddingLeft:5,color:'#000', fontFamily:Fonts.Font_Bold, fontSize:15}}>Price (Student): <Text style={{color:'#000', fontFamily:Fonts.Font_Medium, fontSize:15}}>{item.student_amount}/-</Text>
+                      {(item.student_amount && !(userAccess && userAccess.nuthana_jeevam==1))?<Text style={{paddingLeft:5,color:'#000', fontFamily:Fonts.Font_Bold, fontSize:15}}>Price (Student): <Text style={{color:'#000', fontFamily:Fonts.Font_Medium, fontSize:15}}>{item.student_amount}/-</Text>
                       </Text>:null}
-                      {item.graduate_amount?<Text style={{paddingLeft:5,color:'#000', fontFamily:Fonts.Font_Bold, fontSize:15}}>Price (Graduate): <Text style={{color:'#000', fontFamily:Fonts.Font_Medium, fontSize:15}}>{item.graduate_amount}/-</Text>
+                      {(item.graduate_amount && !(userAccess && userAccess.nuthana_jeevam==1))?<Text style={{paddingLeft:5,color:'#000', fontFamily:Fonts.Font_Bold, fontSize:15}}>Price (Graduate): <Text style={{color:'#000', fontFamily:Fonts.Font_Medium, fontSize:15}}>{item.graduate_amount}/-</Text>
                       </Text>:null}
                       <Text style={{paddingLeft:5,color:'#000', fontFamily:Fonts.Font_Bold, fontSize:15}}>Released On: <Text style={{color:'#000', fontFamily:Fonts.Font_Medium, fontSize:15}}>{item.release_date}</Text>
                       </Text>

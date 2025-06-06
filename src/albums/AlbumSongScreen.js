@@ -392,9 +392,9 @@ const AlbumSongScreen = (props) => {
         <View style={{paddingLeft:10, paddingRight:10}}>
           <View style={{display:'flex', flexDirection:'row',justifyContent:'center',alignItems:'flex-end',marginBottom:10}}>
             <Text style={{color:'#000000',fontSize:25,fontWeight:'bold'}}>{props.selectedSong.song_chord}</Text>
-            <Text style={{color:'#000000',fontSize:16,fontWeight:'bold',position:"absolute",right:0}}>{props?.selectedSong?.song[0]?.artist}</Text>
+            <Text style={[styles.teluguFont,{color:'#000000',fontSize:18,position:"absolute",right:0}]}>{props?.selectedSong?.song[0]?.artist}</Text>
           </View>
-          {(props.songType==='telugu' || props.songType==='new')?<Text style={[styles.teluguFont,{color:'#000000', fontSize:18, marginTop:0, marginLeft:5, paddingBottom:110}]}>
+          {(props.songType==='telugu' || props.songType==='new')?<Text style={[styles.teluguFont,{color:'#000000', fontSize:20, marginTop:0, marginLeft:5, paddingBottom:110}]}>
           {props.selectedSong.local_text}
           </Text>:null}
           {(props.songType==='english' || props.songType==='hindi')?<Text style={[styles.englishFont,{color:'#000000', fontSize:18, marginTop:0, marginLeft:5, paddingBottom:110}]}>
@@ -564,8 +564,10 @@ const styles = StyleSheet.create({
     color:'#000'
   },
   teluguFont:{
-    //fontFamily: 'suranna',
-    //textAlign:'justify'
+    fontFamily: Fonts.Telugu_Mandali,
+    textAlign: 'justify',
+    fontWeight: '600',
+    fontSize: 18
   },
   englishFont:{
     fontFamily:Fonts.Font_Reguler

@@ -583,9 +583,9 @@ const DrawerNavigator = () => {
                 fontWeight: 'bold',
             },
           }}/>
-          <Drawer.Screen name="New music albums" component={AlbumsScreen}  options={{
-            drawerLabel: 'New music albums',
-            title: 'New music albums',
+          <Drawer.Screen name="Music albums" component={AlbumsScreen}  options={{
+            drawerLabel: 'Music albums',
+            title: 'Music albums',
             groupName: 'music-albums',
             headerStyle: {
                 backgroundColor: Colors().themeColor,

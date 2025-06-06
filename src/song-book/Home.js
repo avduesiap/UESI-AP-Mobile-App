@@ -378,7 +378,7 @@ const Home = (props) => {
 
   const shareSong = ()=>{
     const shareOptions = {
-      message:'\n UESI - Vidyarthi_Geethavali Android App: \n https://play.google.com/store/apps/details?id=com.uesits.geethavali\n\n'+selectedSongToShare.local_text
+      message:'\n UESI - Vidyarthi_Geethavali Android App: \n https://play.google.com/store/apps/details?id=com.uesiap.geethavali\n\n'+selectedSongToShare.local_text
     };
     Share.open(shareOptions)
     .then((res) => {

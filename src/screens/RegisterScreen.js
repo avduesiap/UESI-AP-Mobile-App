@@ -226,7 +226,7 @@ function RegisterScreen(props) {
                 </TouchableOpacity>
                 <View style={[{ flex: 0.95, justifyContent: 'center', alignContent: 'center' }]}>
                     <Text style={[GlobalStyles.authtabbarText, { lineHeight: hp('6%') }]}>{strings.registration.title}</Text>
-                    <Text style={[GlobalStyles.authSubText,{paddingRight:10}]}>Create account to continue to get songs, videos and shopping with UESI-TS</Text>
+                    <Text style={[GlobalStyles.authSubText,{paddingRight:10}]}>Create account to continue to get songs, videos and shopping with UESI-AP</Text>
                 </View>
             </OtrixHeader>
 

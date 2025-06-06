@@ -51,7 +51,7 @@
     "react-native-media-controls": "^2.3.0",
     "react-native-onesignal": "^5.0.4",
     "react-native-orientation-locker": "^1.5.0",
-    "react-native-paper": "^4.12.5",
+    "react-native-paper": "4.12.5",
     "react-native-paper-dropdown": "^1.0.7",
     "react-native-pdf": "^6.6.2",
     "react-native-picker-select": "^8.1.0",

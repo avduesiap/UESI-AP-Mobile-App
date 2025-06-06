@@ -65,28 +65,23 @@ function SubscriptionScreen(props,{ route, navigation }) {
         <SafeAreaView style={style.container}>
         <View style={{flex: 1, justifyContent: 'flex-start', alignItems: 'center',marginTop:40}}>
         <Card style={{marginTop:30,width:300}}>
-            <Button  mode="outlined" onPress={() => openLinkInAppBrowser('')}>
-                    NEW SUBSCRIPTION
+            <Button  mode="outlined" onPress={() => openLinkInAppBrowser('https://forms.gle/gDLLkP6T4oZaY82o6')}>
+                    NEW / RENEWAL SUBS
             </Button>
             </Card>
             <Card style={{marginTop:30,width:300}}>
-            <Button mode="outlined" onPress={() => openLinkInAppBrowser('')}>
-            RENEWAL
-            </Button>
-            </Card>
-            <Card style={{marginTop:30,width:300}}>
-            <Button mode="outlined" onPress={() => openLinkInAppBrowser('')}>
+            <Button mode="outlined" onPress={() => openLinkInAppBrowser('https://forms.gle/fFzUtN3qwJnoscu99')}>
             ADDRESS CHANGE
             </Button>
             </Card>
             <Card style={{marginTop:30,width:300}}>
-            <Button  mode="outlined" onPress={() => openLinkInAppBrowser('')}>
-            COMPLAINTS
+            <Button  mode="outlined" onPress={() => openLinkInAppBrowser('https://forms.gle/iGFoLTngBmQ6YHvt9')}>
+            FEEDBACK
             </Button>
             </Card>
             <Card style={{marginTop:30,width:300}}>
-            <Button mode="outlined" onPress={() => openLinkInAppBrowser('')}>
-            PRAYER POINTS
+            <Button mode="outlined" onPress={() => openLinkInAppBrowser('https://forms.gle/YDTmswHGbwEDuUvs8')}>
+            V.J. DIGITAL EDITION
             </Button>
             </Card>
         </View>

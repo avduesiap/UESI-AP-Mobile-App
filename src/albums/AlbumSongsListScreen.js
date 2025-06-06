@@ -423,6 +423,10 @@ header:{
     fontSize: 18,
     color:'black',
     width:width,
+    fontFamily: Fonts.Telugu_Mandali,
+    textAlign: 'justify',
+    fontWeight: '600',
+    fontSize: 18
     //fontFamily:'suranna'
 },
   textInputStyle: {
@@ -439,7 +443,7 @@ header:{
     color:'#fff',
     textColor:'#fff',
     underlineColor:Colors().themeColor
-  },
+  }
 });
 function mapStateToProps(state) {
   return {
