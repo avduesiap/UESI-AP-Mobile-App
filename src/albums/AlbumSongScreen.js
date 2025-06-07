@@ -28,7 +28,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import songs from '../data';
 import { useFocusEffect } from '@react-navigation/native';
-import { Button, Modal, Tooltip, ActivityIndicator, MD2Colors } from 'react-native-paper';
+import { Button, Modal, Tooltip, ActivityIndicator, MD2Colors,ToggleButton,RadioButton } from 'react-native-paper';
 import ModalPreview  from '../screens/ModalPreview';
 import Fonts from "@helpers/Fonts";
 const {width, height} = Dimensions.get('window');
@@ -54,6 +54,8 @@ const AlbumSongScreen = (props) => {
   const [trackTitle, setTrackTitle] = useState();
   const [trackArtist, setTrackArtist] = useState();
   const [trackArtwork, setTrackArtwork] = useState();
+  const [value, setValue] = React.useState('left');
+  const [songOrTrackChecked, setSongOrTrackChecked] = React.useState('song');
   // custom referecnces
   const scrollX = useRef(new Animated.Value(0)).current;
   const songSlider = useRef(null);
@@ -61,6 +63,7 @@ const AlbumSongScreen = (props) => {
   useFocusEffect(
     useCallback(() => {
       selectedSongToShare = props.selectedSong;
+      //setSongOrTrackChecked('song');
     }))
   const goback = (song) =>{
     try{
@@ -85,6 +88,7 @@ const AlbumSongScreen = (props) => {
   }
   const previousSong = (song) =>{
     let totalSongs = props.selectedSongsList;
+    setSongOrTrackChecked('song');
     let index = totalSongs.findIndex(song1=>song1.local_id===song.local_id);
     if(index>-1){
       let count = index-1;
@@ -104,6 +108,7 @@ const AlbumSongScreen = (props) => {
   }
   const nextSong = (song) =>{
     let totalSongs = props.selectedSongsList;
+    setSongOrTrackChecked('song');
     let index = totalSongs.findIndex(song1=>song1.local_id===song.local_id);
     if(index>-1){
       let count = index+1;
@@ -120,6 +125,28 @@ const AlbumSongScreen = (props) => {
           }
         }
     }
+  } 
+
+  const songTypeChanged = (type) =>{
+      setSongOrTrackChecked(type);
+      let song = JSON.parse(JSON.stringify(props.selectedSong.song));
+      if(type == 'song'){
+          song[0].url = props.selectedSong.song[0].url;
+      }else{
+          song[0].url = props.selectedSong.song[0].track_url;
+      }
+       try {
+        TrackPlayer.reset();
+        setTimeout(()=>{
+            song[0].artwork = require('../assets/images/web-logo.png');
+            console.log(song);
+            TrackPlayer.add(song);
+            TrackPlayer.load();
+        },1000);
+        
+       }catch(error){
+        console.log(error);
+       }
   }
   const setupPlayer = async () => {
     try {
@@ -269,6 +296,7 @@ const AlbumSongScreen = (props) => {
     });
   };
 
+
   const renderSongs = ({item, index}) => {
     return (
       <Animated.View style={style.mainWrapper}>
@@ -287,11 +315,32 @@ const AlbumSongScreen = (props) => {
     
     return (
       <View style={style.bottomSection}>
-        <View style={style.bottomIconContainer}>
-      <TouchableOpacity onPress={() => togglePlayBack(playBackState.state)}>
-          <Ionicons name={ playBackState.state === State.Playing ? 'ios-pause-circle' : 'ios-play-circle' } size={30} color="#000000" />
-          </TouchableOpacity>
-          <View>
+        <View style={[style.bottomIconContainer,{justifyContent:'flex-start'}]}>
+              <View style={{flexDirection:'row',alignItems:'center'}}>
+              <RadioButton
+                value="song"
+                color="#881349"
+                status={ songOrTrackChecked === 'song' ? 'checked' : 'unchecked' }
+                onPress={() => songTypeChanged('song')}
+              />
+              <Text>Song</Text>
+            </View>
+              <View style={{flexDirection:'row',alignItems:'center',marginLeft:40}}>
+              <RadioButton
+                value="track"
+                color="#881349"
+                status={ songOrTrackChecked === 'track' ? 'checked' : 'unchecked' }
+                onPress={() => songTypeChanged('track')}
+              />
+              <Text>Track</Text>
+              </View>
+    </View>
+    <View style={[style.bottomIconContainer,{alignItems:'center'}]}>
+          
+         
+            <TouchableOpacity onPress={() => togglePlayBack(playBackState.state)}>
+            <Ionicons name={ playBackState.state === State.Playing ? 'ios-pause-circle' : 'ios-play-circle' } size={30} color="#000000" />
+            </TouchableOpacity>
           <Slider
             style={style.progressBar}
             value={progress.position}
@@ -327,12 +376,13 @@ const AlbumSongScreen = (props) => {
                 .substring(3).slice(0,-3)}
             </Text>
           </View>
-        </View>
+        
 
         {(props.selectedSong && props.selectedSong.note && props.selectedSong.note!='')? <TouchableOpacity onPress={() => showNote()}>
             <Ionicons name="information-circle" size={30} color="#000000" />
           </TouchableOpacity>:null}
           </View>
+          
           </View>
     );
   };
@@ -384,17 +434,17 @@ const AlbumSongScreen = (props) => {
     <SafeAreaView style={style.container}>
       <View style={{flexDirection:'row', justifyContent:'space-between',alignItems:'center'}}>
         <Button onPress={()=>previousSong(props.selectedSong)}><Ionicons name='arrow-back' size={30} color="#000000" /></Button>
-        {(props.songType==='telugu' || props.songType==='new')?<Text style={[styles.teluguFont,{color:'#000000',fontSize:18,height:30,width:250,textAlign:'center'}]}>{props.selectedSong.local_id}. {props.selectedSong.local_title} </Text>:''}
+        {(props.songType==='telugu' || props.songType==='new')?<Text style={[styles.teluguFont,{color:'#000000',fontSize:18,height:30,width:250,textAlign:'center',lineHeight:33}]}>{props.selectedSong.local_id}. {props.selectedSong.local_title} </Text>:''}
         {(props.songType==='english' || props.songType==='hindi')?<Text style={[styles.englishFont,{color:'#000000',fontSize:18,height:30,width:250,textAlign:'center'}]}>{props.selectedSong.local_id}. {props.selectedSong.local_title} </Text>:''}
         <Button onPress={()=>nextSong(props.selectedSong)}><Ionicons name='arrow-forward' size={30} color="#000000" /></Button>
       </View>
       <ScrollView>
         <View style={{paddingLeft:10, paddingRight:10}}>
           <View style={{display:'flex', flexDirection:'row',justifyContent:'center',alignItems:'flex-end',marginBottom:10}}>
-            <Text style={{color:'#000000',fontSize:25,fontWeight:'bold'}}>{props.selectedSong.song_chord}</Text>
-            <Text style={[styles.teluguFont,{color:'#000000',fontSize:18,position:"absolute",right:0}]}>{props?.selectedSong?.song[0]?.artist}</Text>
+            <Text style={{color:'#000000',fontSize:18,fontWeight:'bold'}}>{props.selectedSong.song_chord}</Text>
+            <Text style={[styles.teluguFont,{color:'#000000',fontSize:18,position:"absolute",right:0,lineHeight:35}]}>{props?.selectedSong?.song[0]?.artist}</Text>
           </View>
-          {(props.songType==='telugu' || props.songType==='new')?<Text style={[styles.teluguFont,{color:'#000000', fontSize:20, marginTop:0, marginLeft:5, paddingBottom:110}]}>
+          {(props.songType==='telugu' || props.songType==='new')?<Text style={[styles.teluguFont,{color:'#000000', fontSize:18, marginTop:0, marginLeft:5, paddingBottom:110}]}>
           {props.selectedSong.local_text}
           </Text>:null}
           {(props.songType==='english' || props.songType==='hindi')?<Text style={[styles.englishFont,{color:'#000000', fontSize:18, marginTop:0, marginLeft:5, paddingBottom:110}]}>
@@ -451,7 +501,8 @@ const style = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     width: '80%',
-    marginLeft:-50
+    marginLeft:-50,
+    alignItems:'center'
   },
 
   mainWrapper: {
@@ -567,7 +618,8 @@ const styles = StyleSheet.create({
     fontFamily: Fonts.Telugu_Mandali,
     textAlign: 'justify',
     fontWeight: '600',
-    fontSize: 18
+    fontSize: 18,
+    lineHeight:20
   },
   englishFont:{
     fontFamily:Fonts.Font_Reguler
